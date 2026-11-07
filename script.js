@@ -7,8 +7,14 @@ function changeResult(startIndex, endIndex, number) {
   // 文字列をどんどん追加していくための仮置き変数
   let cssText = '';
 
+  console.log(`処理を開始します: 画面内のテキスト要素の数=${allText.length}, バー要素の数=${allBar.length}`);
+
   for (let i = startIndex; i <= endIndex; i++) {
-    if (allText[i] && allBar[i]) {
+    if (!allText[i] || !allBar[i]) {
+      console.error(`インデックス ${i} の要素が見つかりませんでした。スキップします。`);
+      continue; 
+    }
+
       allText[i].textContent = `${number}%`;
       allBar[i].style.width = `${number}%`;
   
@@ -23,10 +29,11 @@ function changeResult(startIndex, endIndex, number) {
       }
       `;
     }
-  }
+    
   // 最期にまとめてcssを適用する
   if (cssText !== '') {
     style.textContent = cssText;
     document.head.appendChild(style);
+    console.log("CSSをまとめて適用しました。");
   }
 }
