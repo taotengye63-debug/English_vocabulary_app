@@ -2,7 +2,11 @@
 function changeResult(startIndex, endIndex, number) {
     // ページ内のiframeを探す
     const iframe = document.querySelectorAll('iframe');
-    const targetDoc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : document;
+    const targetDoc = iframe ? (iframe.contentDocument || iframe.contentWindow?.document) : document;
+    if (!targetDoc) {
+        console.error("子画面(iframe)のドキュメントにアクセスできませんでした。");
+        return;
+    }
     // ページ内のすべての対象リストを取得
     const allText = targetDoc.querySelectorAll('.prpgress-sakura');
     const allBar = targetDoc.querySelectorAll('.progress-bar.progress-bar-info');
