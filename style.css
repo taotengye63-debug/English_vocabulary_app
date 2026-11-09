@@ -1,0 +1,64 @@
+/* 1. ブラウザが最初から持っている不要な余白を消す */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; /* 親要素の高さを100%にする */
+}
+
+/* 2. mainを画面いっぱいのサイズにする */
+main {
+  width: 100%;
+  min-height: 100vh; /* 画面の高さ（Viewport Height）の100%を最低限確保する */
+  background-color: #f9f9f9; /* 範囲を確認しやすくするための背景色（任意） */
+}
+
+/* 3. containerやwrapperも必要に応じて広げる */
+.container {
+  width: 100%;
+  max-width: 1200px; /* 横幅が広がりすぎないようにする一般的な設定 */
+  margin: 0 auto;    /* 画面の中央に寄せる */
+  padding: 20px;     /* 内側の余白 */
+}
+
+li {
+    list-style: none;
+}
+
+section {
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+}
+
+.step_circle {
+  /* きれいな正円を作る設定 */
+  width: 80px;
+  height: 80px;
+  background-color: #ff3b30; /* 赤色 */
+  border-radius: 50%;        /* 角を丸めて真ん丸にする */
+
+  /* 文字を縦に並べて中央に配置する設定 */
+  display: flex;
+  flex-direction: column;    /* 上下（2行）に並べる */
+  justify-content: center;   /* 上下の中央に配置 */
+  align-items: center;       /* 左右の中央に配置 */
+  
+  color: #ffffff;            /* 文字色を白にする */
+  font-family: sans-serif;   /* フォントの種類 */
+}
+
+/* 1行目（STEP）の文字デザイン */
+.step_text {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.05em;   /* 文字の間隔を少し広げる */
+  line-height: 1.2;
+}
+
+/* 2行目（数字）の文字デザイン */
+.step_num {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+}
